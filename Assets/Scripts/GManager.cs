@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
-using TMPro;
+using TMPro; //UIをスクリプトで操作するために必要な機能
 
 public class GManager : MonoBehaviour
 {
@@ -20,8 +20,10 @@ public class GManager : MonoBehaviour
         
     }
 
+    //他のclass(PlayerController)で使うため、privateではなくpublicにしている。
     public void ChangeScore()
     {
+        //UIであるscoreTextの値を最新版に更新する。
         scoreTx.SetText("Score:" + score.ToString());
     }
 
