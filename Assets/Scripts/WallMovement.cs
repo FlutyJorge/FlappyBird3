@@ -5,6 +5,7 @@ using UnityEngine;
 public class WallMovement : MonoBehaviour
 {
     [SerializeField] float wallSpeed;
+    [SerializeField] GManager gManager;
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +16,9 @@ public class WallMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Wallをマイフレーム左に1×wallSpeedだけ移動させる。
-        this.gameObject.transform.position += Vector3.left * Time.deltaTime * wallSpeed;
+        if (!gManager.isEnd)
+        {
+            this.gameObject.transform.position += Vector3.left * Time.deltaTime * wallSpeed;
+        }
     }
 }
